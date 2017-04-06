@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './App.css';
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import { setSearchTerm, requestRobots } from '../actions'
+import CardList from '../../components/CardList';
+import SearchBox from '../../components/SearchBox';
+import Scroll from '../../components/Scroll';
+import { setSearchTerm, requestRobots } from '../../actions'
 
 const mapStateToProps = (state) => {
   return {
