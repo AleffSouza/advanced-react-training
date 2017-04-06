@@ -13,8 +13,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRequestRobots: () => dispatch(requestRobots())
-  }
+    onRequestRobots: () => dispatch(requestRobots()),
+  };
 }
 
 class Profile extends Component {
