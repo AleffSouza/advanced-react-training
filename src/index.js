@@ -1,18 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'; // glue between React and the DOM
+import { Provider } from 'react-redux'
 import App from './containers/App';
 import './index.css';
-import { robotsSearch, robotsRequest } from './reducers'
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import ReduxThunk from 'redux-thunk'
-import createLogger from 'redux-logger'
-
-const logger = createLogger()
-
-const rootReducers = combineReducers({robotsSearch, robotsRequest})
-
-const store = createStore(rootReducers, applyMiddleware(ReduxThunk, logger))
+import { store } from './store'
 
 ReactDOM.render(
   <Provider store={store}>
