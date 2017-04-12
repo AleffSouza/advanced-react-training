@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div className='tc'>
         <h1>RoboDex</h1>
-        <SearchBox onSearchChange={onSearchChange}/>
+        <SearchBox onSearchChange={onSearchChange} searchTerm={searchTerm} />
         <Scroll>
           {isPending ? <h2>Loading...</h2> : <CardList robots={filteredRobots} />}
         </Scroll>
