@@ -17,7 +17,7 @@ let profileLoader = (cb) =>
   }, 'profile')
 
 const LazyApp = Lazy(appLoader)
-const LazyProfile =Lazy(profileLoader)
+const LazyProfile = Lazy(profileLoader)
 
 ReactDOM.render(
   <Provider store={store}>
