@@ -1,13 +1,33 @@
-This is a training course for developers looking to learn React. It is a part 2 of a 3 part seriese for learning the entire React+Redux ecosystem to create production ready apps.
+# advanced-react-training
 
-To run the project:
+This repo is the source code for part-3 of three-part [webinar](http://info.rangle.io/react-online-training) on react and redux. It was created with [create-react-app](https://github.com/facebookincubator/create-react-app).
 
-1. Clone the repo
+## Getting started
 
-2. `npm install`
+```bash
+git clone git@github.com:turbobeast/advanced-react-training.git
+cd advanced-react-training
+npm install
+npm start
+```
 
-3. `npm start`
 
-webpack will compile all of the code in the src/ folder.
+## Lessons
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+### Routing
+
+```bash
+git checkout routing
+```
+
+### Server-Side Rendering
+
+```bash
+git checkout ssr
+```
+
+### Lazy Loading
+
+```bash
+git checkout lazy-loading
+```
