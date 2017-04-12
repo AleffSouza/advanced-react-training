@@ -5,33 +5,33 @@ import {
   REQUEST_ROBOTS_FAILED
  } from './constants'
 
-const initialState1 = {
-  searchTerm: ''
-}
+const searchInitialState = {
+  searchTerm: '',
+};
 
-export const robotsSearch = (state=initialState1, action={}) => {
+export const searchReducer = (state=searchInitialState, action={}) => {
   switch (action.type) {
     case CHANGE_SEARCHTERM:
-      return Object.assign({}, state, {searchTerm: action.payload})
+      return Object.assign({}, state, {searchTerm: action.payload});
     default:
-      return state
+      return state;
   }
-}
+};
 
-const initialState2 = {
+const robotsInitialState = {
   robots: [],
-  isPending: true
-}
+  isPending: false,
+};
 
-export const robotsRequest = (state=initialState2, action={}) => {
+export const robotsReducer = (state=robotsInitialState, action={}) => {
   switch (action.type) {
     case REQUEST_ROBOTS_PENDING:
-      return Object.assign({}, state, {isPending: false})
+      return Object.assign({}, state, {isPending: true});
     case REQUEST_ROBOTS_SUCCESS:
-      return Object.assign({}, state, {robots: action.payload, isPending: false})
+      return Object.assign({}, state, {robots: action.payload, isPending: false});
     case REQUEST_ROBOTS_FAILED:
-      return Object.assign({}, state, {error: action.payload})
+      return Object.assign({}, state, {error: action.payload, isPending: false});
     default:
-      return state
+      return state;
   }
-}
+};
