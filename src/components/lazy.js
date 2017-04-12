@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Lazy extends Component {
+class Lazy extends Component {
   componentWillMount () {
     this.setState(() => ({
       component: null,
     }));
-
-    this.loadComponent(this.props.load);
-  }
-
-  loadComponent(loader) {
-    loader((component) => {
+    
+    this.props.load((component) => {
       this.setState(() => ({ component }));
     })
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.load !== nextProps.load) {
-      this.loadComponent(nextProps.load);
-    }
   }
 
   render () {
@@ -33,3 +23,5 @@ export default class Lazy extends Component {
 Lazy.propTypes = {
   load: PropTypes.func.isRequired,
 };
+
+export default (load) => (props) => <Lazy load={load} {...props} />

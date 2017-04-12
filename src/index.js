@@ -16,12 +16,15 @@ let profileLoader = (cb) =>
     cb(require('./containers/profile/Profile').default)
   }, 'profile')
 
+const LazyApp = Lazy(appLoader)
+const LazyProfile =Lazy(profileLoader)
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact render={(props) => <Lazy load={appLoader} {...props} />} />
-        <Route path="/profile/:id" render={(props) => <Lazy load={profileLoader} {...props} />} />
+        <Route path="/" exact component={LazyApp} />
+        <Route path="/profile/:id" component={LazyProfile} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
