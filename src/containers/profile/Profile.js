@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Profile.css';
 import { requestRobots } from '../../actions'
 
-const mapStateToProps = (state) => {
-  let robotid = 1
+const mapStateToProps = (state, ownProps) => {
+  let robotid = parseInt(ownProps.match.params.id, 10);
   return {
     robot: state.robotsRequest.robots.find((robo) => robo.id === robotid),
     isPending: state.robotsRequest.isPending,
@@ -20,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 
 class Profile extends Component {
   componentDidMount() {
-    this.props.onRequestRobots()
+    this.props.onRequestRobots();
   }
 
   render() {
@@ -29,6 +30,7 @@ class Profile extends Component {
       <div className='tc'>
         <h1>RoboDex</h1>
         <div className="profilePage">
+          <Link className="button" to="/">Back</Link>
           { isPending || robot === undefined
           ? <p>no robot yet</p>
           : <div className="profile">
