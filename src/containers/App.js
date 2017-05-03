@@ -23,8 +23,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-  componentDidMount() {
-    this.props.onRequestRobots()
+  componentWillMount() {
+    if (this.props.robots.length === 0) {
+      this.props.onRequestRobots();
+    }
   }
 
   render() {

@@ -5,7 +5,7 @@ import App from './containers/App';
 import './index.css';
 import createStore from './store';
 
-const store = createStore();
+const store = createStore(window.INITIAL_STATE);
 
 ReactDOM.render(
   <Provider store={store}>
